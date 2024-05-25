@@ -17,6 +17,12 @@ export default function Counter({ $app }) {
     input.value = currentValue + 1;
   };
 
+  const onDecrement = () => {
+    const input = document.querySelector(".count-display");
+    const currentValue = parseInt(input.value, 10);
+    input.value = currentValue - 1;
+  };
+
   const init = () => {
     render();
 
@@ -24,10 +30,18 @@ export default function Counter({ $app }) {
       .querySelector(".plus-button")
       .addEventListener("click", onIncrement);
 
+    document
+      .querySelector(".minus-button")
+      .addEventListener("click", onDecrement);
+
     return () => {
       document
         .querySelector(".plus-button")
         .removeEventListener("click", onIncrement);
+
+      document
+        .querySelector(".minus-button")
+        .removeEventListener("click", onDecrement);
     };
   };
 

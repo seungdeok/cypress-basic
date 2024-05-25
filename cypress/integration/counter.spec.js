@@ -26,7 +26,16 @@ describe("ui-counter", () => {
     cy.get(".count-display").should("have.value", 11);
   });
 
-  it("- 버튼을 클릭 시 count가 1감소한다.", () => {});
+  it("- 버튼을 클릭 시 count가 1감소한다.", () => {
+    // 클릭 전 초기값
+    cy.get(".count-display").should("have.value", 10);
+
+    // + 버튼 클릭
+    cy.get(".minus-button").click();
+
+    // 클릭 후 증가한 값
+    cy.get(".count-display").should("have.value", 9);
+  });
 
   it("+ 버튼을 눌렀을 때 count가 12가 넘는 경우 더이상 증가하지 못한다. (Max 값이 12)", () => {});
 
