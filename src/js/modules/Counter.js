@@ -11,8 +11,24 @@ export default function Counter({ $app }) {
         </div>`;
   };
 
+  const onIncrement = () => {
+    const input = document.querySelector(".count-display");
+    const currentValue = parseInt(input.value, 10);
+    input.value = currentValue + 1;
+  };
+
   const init = () => {
     render();
+
+    document
+      .querySelector(".plus-button")
+      .addEventListener("click", onIncrement);
+
+    return () => {
+      document
+        .querySelector(".plus-button")
+        .removeEventListener("click", onIncrement);
+    };
   };
 
   init();

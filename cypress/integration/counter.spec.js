@@ -15,7 +15,16 @@ describe("ui-counter", () => {
     cy.get(".count-display").should("have.value", "10");
   });
 
-  it("+ 버튼을 클릭 시 count가 1증가한다.", () => {});
+  it("+ 버튼을 클릭 시 count가 1증가한다.", () => {
+    // 클릭 전 초기값
+    cy.get(".count-display").should("have.value", 10);
+
+    // + 버튼 클릭
+    cy.get(".plus-button").click();
+
+    // 클릭 후 증가한 값
+    cy.get(".count-display").should("have.value", 11);
+  });
 
   it("- 버튼을 클릭 시 count가 1감소한다.", () => {});
 
