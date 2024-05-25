@@ -28,22 +28,17 @@ export default function Counter({ $app }) {
   const init = () => {
     render();
 
-    document
-      .querySelector(".plus-button")
-      .addEventListener("click", onIncrement);
+    const plusBtn = document.querySelector(".plus-button");
+    const minusBtn = document.querySelector(".minus-button");
 
-    document
-      .querySelector(".minus-button")
-      .addEventListener("click", onDecrement);
+    plusBtn.addEventListener("click", onIncrement);
+
+    minusBtn.addEventListener("click", onDecrement);
 
     return () => {
-      document
-        .querySelector(".plus-button")
-        .removeEventListener("click", onIncrement);
+      plusBtn.removeEventListener("click", onIncrement);
 
-      document
-        .querySelector(".minus-button")
-        .removeEventListener("click", onDecrement);
+      minusBtn.removeEventListener("click", onDecrement);
     };
   };
 
