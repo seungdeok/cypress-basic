@@ -21,6 +21,7 @@ export default function Counter({ $app }) {
   const onDecrement = () => {
     const input = document.querySelector(".count-display");
     const currentValue = parseInt(input.value, 10);
+    if (currentValue === 8) return;
     input.value = currentValue - 1;
   };
 

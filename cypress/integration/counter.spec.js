@@ -51,5 +51,17 @@ describe("ui-counter", () => {
     cy.get(".count-display").should("have.value", 12);
   });
 
-  it("- 버튼을 눌렀을 때 count는 8보다 작아지는 경우 감소하지 못한다. (Min 값이 8)", () => {});
+  it("- 버튼을 눌렀을 때 count는 8보다 작아지는 경우 감소하지 못한다. (Min 값이 8)", () => {
+    // 클릭 전 초기값
+    cy.get(".count-display").should("have.value", 10);
+
+    // + 버튼 클릭
+    cy.get(".minus-button").click();
+    cy.get(".minus-button").click();
+    cy.get(".minus-button").click();
+    cy.get(".minus-button").click();
+
+    // 클릭 후 증가한 값
+    cy.get(".count-display").should("have.value", 8);
+  });
 });
