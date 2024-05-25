@@ -14,6 +14,7 @@ export default function Counter({ $app }) {
   const onIncrement = () => {
     const input = document.querySelector(".count-display");
     const currentValue = parseInt(input.value, 10);
+    if (currentValue === 12) return;
     input.value = currentValue + 1;
   };
 
